@@ -54,6 +54,3 @@ select * from car ORDER BY price limit 2;
 
 ---Group by---
 select car_name from car group by car_name;
-
-
-amol rathod
