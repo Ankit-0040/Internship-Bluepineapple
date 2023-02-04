@@ -1,0 +1,6 @@
+src/*.exe
+src/*.obj
+build/*.cpp
+build/*.c
+build/*.py
+build/*.txt

@@ -1,0 +1,56 @@
+---Create Table---
+create table user(user_id int primary key, user_name varchar(50), user_email varchar(100) );
+
+create table car(car_id int primary key,car_name varchar(100),price long);
+
+---Insert Values---
+mysql> insert into user values(1,'ankit','ankit@gmail.com');
+mysql> insert into user values(2,'aditya','aditya@gmail.com');
+mysql> insert into user values(3,'ketki','ketki@gmail.com');
+mysql> insert into user values(4,'raviraj','ravi@gmail.com');
+mysql> insert into user values(5,'anushka','anushka@gmail.com');
+
+
+mysql> insert into car values(11,'Baleno','100000');
+mysql> insert into car values(22,'Swift','900000'),(33,'Honda City',1200000);
+mysql> insert into car values(44,'BMW',4000000),(55,'Audi',5000000);
+mysql> insert into car values(66,'Baleno','1000');
+
+
+
+
+---Select all values---
+
+select * from user;
++---------+-----------+-------------------+
+| user_id | user_name | user_email        |
++---------+-----------+-------------------+
+|       1 | ankit     | ankit@gmail.com   |
+|       2 | aditya    | aditya@gmail.com  |
+|       3 | ketki     | ketki@gmail.com   |
+|       4 | raviraj   | ravi@gmail.com    |
+|       5 | anushka   | anushka@gmail.com |
++---------+-----------+-------------------+
+
+mysql> select * from car;
++--------+------------+---------+
+| car_id | car_name   | price   |
++--------+------------+---------+
+|     11 | Baleno     | 100000  |
+|     22 | Swift      | 900000  |
+|     33 | Honda City | 1200000 |
+|     44 | BMW        | 4000000 |
+|     55 | Audi       | 5000000 |
+|     66 | Baleno     | 1000    |
++--------+------------+---------+
+
+
+---Select with Alias(As)---
+select user_name as name from user;
+
+---Order By---
+ select * from car ORDER BY price;
+select * from car ORDER BY price limit 2;
+
+---Group by---
+select car_name from car group by car_name;
