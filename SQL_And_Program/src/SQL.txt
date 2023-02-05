@@ -3,6 +3,8 @@ create table user(user_id int primary key, user_name varchar(50), user_email var
 
 create table car(car_id int primary key,car_name varchar(100),price long);
 
+create table profile (p_id int primary key,company varchar(30), position varchar(30), user_id int references user(user_id));
+
 ---Insert Values---
 mysql> insert into user values(1,'ankit','ankit@gmail.com');
 mysql> insert into user values(2,'aditya','aditya@gmail.com');
@@ -17,6 +19,9 @@ mysql> insert into car values(44,'BMW',4000000),(55,'Audi',5000000);
 mysql> insert into car values(66,'Baleno','1000');
 
 
+mysql> insert into profile values(111,'Bluepineapple','Cloud Analyst',1);
+mysql> insert into profile values(222,'Harbinger Group','Trainee',2),(333,'Crave infotech','Data Analyst',3);
+mysql> insert into profile values(444,'Capgemini','Developer',4),(555,'Infosys','SDE-1',5);
 
 
 ---Select all values---
@@ -43,6 +48,17 @@ mysql> select * from car;
 |     55 | Audi       | 5000000 |
 |     66 | Baleno     | 1000    |
 +--------+------------+---------+
+
+mysql> select * from profile;
++------+-----------------+---------------+---------+
+| p_id | company         | position      | user_id |
++------+-----------------+---------------+---------+
+|  111 | Bluepineapple   | Cloud Analyst |       1 |
+|  222 | Harbinger Group | Trainee       |       2 |
+|  333 | Crave infotech  | Data Analyst  |       3 |
+|  444 | Capgemini       | Developer     |       4 |
+|  555 | Infosys         | SDE-1         |       5 |
++------+-----------------+---------------+---------+
 
 
 ---Select with Alias(As)---
