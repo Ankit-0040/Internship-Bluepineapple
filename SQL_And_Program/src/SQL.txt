@@ -54,3 +54,14 @@ select * from car ORDER BY price limit 2;
 
 ---Group by---
 select car_name from car group by car_name;
+
+---Select from two tables---
+ select * from user,profile where user.user_id = profile.user_id;
+select * from user,profile where user.user_id = profile.user_id and user.user_name = 'ankit';
+
+---Joins---
+select * from profile left join user on profile.user_id = user.user_id;
+
+select * from profile inner join user on profile.user_id = user.user_id;
+
+select * from profile right join user on profile.user_id = user.user_id;
