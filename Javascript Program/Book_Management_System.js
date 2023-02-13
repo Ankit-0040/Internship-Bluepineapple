@@ -4,12 +4,12 @@ function Book(book_name)
         this.data = book_name;
         this.next = null;
     }
-// function Student(book_name)
-//     {
-//         this.data = book_name;
-//         this.next = null;
-//     }
 
+function Student(book_name)
+    {
+        this.data = book_name;
+        this.next = null;
+    }
 
 function Book_List()
 {
@@ -31,7 +31,7 @@ function Book_List()
     
         tnode.next = new_node;
         }
-        console.log(new_node);
+       // console.log(new_node);
     }
     
     function searchBook(bookName){
@@ -71,11 +71,35 @@ function Book_List()
         }
     }
 
+    function issueBook(book_name)
+    {
+         let new_node = new Student(book_name);
+            if(first==null) {
+                first = new_node;
+            } else {
+                let tnode = first;
+                while(tnode.next) {
+                    tnode = tnode.next;
+                }
+                tnode.next = new_node;
+            }
+            //console.log(new_node);
+    }
+
+    function displayIssuedBook()
+    {
+        let tnode = first;
+        while (tnode)
+        {
+        alert(tnode.data);
+        tnode = tnode.next;
+        }
+    }
 
 
 
     do{
-    var ch = Number(prompt("1.insert book \n2.display book\n3.search book\n4.delete\n5.exit\nEnter your choice "));
+    var ch = Number(prompt("1.Insert book \n2.Display book\n3.Search book\n4.delete\n5.Issue book\n6.Display Issued Book\n7.exit\nEnter your choice "));
 
 
     switch(ch){
@@ -98,9 +122,9 @@ function Book_List()
                         }
                         break;
   
-            case 4 : let book=prompt("enter the book name  to delete");
-                    if(searchBook(book)){
-                        del(book);
+            case 4 : let bk_Name = prompt("enter the book name  to delete");
+                    if(searchBook(bk_Name)){
+                        del(bk_Name);
                         alert("Book deleted");
                     }
                     else{
@@ -108,14 +132,27 @@ function Book_List()
                         
                     }
                     break;
+
+            case 5 : 
+                    let bk_name = prompt("Enter the book to issue");
+                    if(searchBook(bk_name)) {
+                        del(bk_name);
+                        issueBook(bk_name);
+                        alert('Book issued successfully');
+                    } else
+                        alert('Book does not exist');
+                    break;
+
+            case 6:      displayIssuedBook();
+                        break;
                         
-            case 5 : exit();
+            case 7 : exit();
                         break;           
 
             default :
             alert("Wrong choice!!!");
     
         }
-    }while(ch!=6)
+    }while(ch!=8)
 }
 Book_List();
